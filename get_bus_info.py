@@ -29,10 +29,10 @@ if __name__ == '__main__':
             bus['VehicleLocation']['Latitude'],
             bus['VehicleLocation']['Longitude'],
             bus['OnwardCalls']['OnwardCall'][0]['StopPointName']
-            if 'OnwardCalls' in bus
+            if bus['OnwardCalls']
             else "N/A",
             bus['OnwardCalls']['OnwardCall'][0]['Extensions'][
                 'Distances']['PresentableDistance']
-            if 'OnwardCalls' in bus
+            if bus['OnwardCalls']
             else "N/A"
         ])
