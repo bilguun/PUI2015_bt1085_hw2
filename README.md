@@ -1,8 +1,8 @@
 # PUI2015_bt1085_hw2
 
-### HOMEWORK 2  FOR Urban Informatics class
+### HOMEWORK 2 for Urban Informatics class
 
-used python libs:
+Used python libs:
 * unicodecsv
 * json
 * datetime
