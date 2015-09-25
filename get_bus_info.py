@@ -24,12 +24,15 @@ if __name__ == '__main__':
         'VehicleMonitoringDelivery'][0]['VehicleActivity']
 
     for bus in vehicleActivity:
+        bus = bus['MonitoredVehicleJourney']
         w.writerow([
-            bus['MonitoredVehicleJourney']['VehicleLocation']['Latitude'],
-            bus['MonitoredVehicleJourney']['VehicleLocation']['Longitude'],
-            bus['MonitoredVehicleJourney']['OnwardCalls'][
-                'OnwardCall'][0]['StopPointName'],
-            bus['MonitoredVehicleJourney']['OnwardCalls']['OnwardCall'][
-                0]['Extensions']['Distances']['PresentableDistance']
-
+            bus['VehicleLocation']['Latitude'],
+            bus['VehicleLocation']['Longitude'],
+            bus['OnwardCalls']['OnwardCall'][0]['StopPointName']
+            if 'StopPointName' in bus['OnwardCalls']['OnwardCall'][0]
+            else "N/A",
+            bus['OnwardCalls']['OnwardCall'][0]['Extensions'][
+                'Distances']['PresentableDistance']
+            if 'PresentableDistance' in bus['OnwardCalls']['OnwardCall'][0]['Extensions']['Distances']
+            else "N/A"
         ])
